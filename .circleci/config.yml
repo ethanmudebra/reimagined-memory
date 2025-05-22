@@ -39,7 +39,7 @@ jobs:
     steps:
       - run:
           name: Show CPU Count
-          command: nproc
+          command: lscpu
 
 workflows:
   build:
