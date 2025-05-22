@@ -33,6 +33,14 @@ jobs:
           name: Install Dependencies
           command: timeout 1m lscpu
 
+  show_cpu_count:
+    docker:
+      - image: circleci/ruby:2.5.3
+    steps:
+      - run:
+          name: Show CPU Count
+          command: nproc
+
 workflows:
   build:
     jobs:
@@ -40,3 +48,4 @@ workflows:
       - Devop1
       - Devop2
       - Devop3
+      - show_cpu_count
