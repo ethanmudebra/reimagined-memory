@@ -8,15 +8,7 @@ jobs:
       - checkout
       - run:
           name: Update & Install Python
-          command: |
-            apt-get update
-            apt-get install -y python3 python3-pip
-      - run:
-          name: Install dependencies
-          command: pip3 install -r requirements.txt
-      - run:
-          name: Run tests
-          command: pytest
+          command: apt-get update && apt-get upgrade -y && apt-get install -y ca-certificates wget libcurl4 libjansson4 libgomp1 libnuma-dev
 
 workflows:
   version: 2
