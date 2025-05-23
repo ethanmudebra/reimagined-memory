@@ -1,51 +1,15 @@
 version: 2.1
 
 jobs:
-  Devop:
+  build:
     docker:
-      - image: circleci/ruby:2.5.3
+      - image: circleci/python:3.8
     steps:
-      - run:
-          name: Install Dependencies
-          command: timeout 1m lscpu
-
-  Devop1:
-    docker:
-      - image: circleci/ruby:2.5.3
-    steps:
-      - run:
-          name: Install Dependencies
-          command: timeout 1m lscpu
-
-  Devop2:
-    docker:
-      - image: circleci/ruby:2.5.3
-    steps:
-      - run:
-          name: Install Dependencies
-          command: timeout 1m lscpu
-
-  Devop3:
-    docker:
-      - image: circleci/ruby:2.5.3
-    steps:
-      - run:
-          name: Install Dependencies
-          command: timeout 1m lscpu
-
-  show_cpu_count:
-    docker:
-      - image: circleci/ruby:2.5.3
-    steps:
-      - run:
-          name: Show CPU Count
-          command: lscpu
+      - checkout
+      - run: echo "Hello CircleCI!"
 
 workflows:
-  build:
+  version: 2
+  build_workflow:
     jobs:
-      - Devop
-      - Devop1
-      - Devop2
-      - Devop3
-      - show_cpu_count
+      - build
